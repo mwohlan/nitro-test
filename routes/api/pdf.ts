@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
 
     const page = await browser.newPage();
 
-    await page.goto('https://www.madewithsupabase.com/', { waitUntil: 'load' })
+    await page.goto('https://timelino.vercel.app/', { waitUntil: 'load' })
 
     const pdf = await page.pdf({
         format: 'a4',
