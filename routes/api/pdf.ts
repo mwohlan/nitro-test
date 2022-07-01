@@ -30,11 +30,8 @@ export default defineEventHandler(async (event) => {
     })
 
     await page.close()
-    console.timeEnd('pdf-service');
+ 
 
-
-
-    console.time("stringify")
 
     const data = pdf.toString('base64')
   
