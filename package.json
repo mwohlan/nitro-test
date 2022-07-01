@@ -5,10 +5,9 @@
     "dev": "nitro dev",
     "build": "nitro build"
   },
-  "devDependencies": {
-    "nitropack": "latest",
-    "typescript": "latest",
+  "dependencies": {
     "chrome-aws-lambda": "10.1.0",
-    "puppeteer": "10.1.0"
+    "puppeteer-core": "10.1.0",
+    "nitropack": "latest"
   }
 }
