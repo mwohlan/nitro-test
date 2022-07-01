@@ -1,0 +1,12 @@
+[functions]
+  external_node_modules = ["chrome-aws-lambda","puppeteer-core"]
+
+[build]
+  command = "yarn build"
+  publish = "dist"
+  functions = ".output/server"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/index"
+  status = 200
