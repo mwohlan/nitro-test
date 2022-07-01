@@ -37,14 +37,9 @@ export default defineEventHandler(async (event) => {
     console.time("stringify")
 
     const data = pdf.toString('base64')
-    const body = JSON.stringify({
-        status: 'Ok',
-        data
-    })
-
-    console.timeEnd("stringify")
+  
 
 
-    return pdf
+    return data
 
 })
