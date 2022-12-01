@@ -1,22 +1,28 @@
-import { defineEventHandler } from 'h3'
 
-import chromium from 'chrome-aws-lambda';
 
-import puppeteer from 'puppeteer-core';
+import puppeteer from 'puppeteer';
 
+let browser;
 
 export default defineEventHandler(async (event) => {
 
-    const browser = await puppeteer.launch({
-        args: chromium.args,
-        executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath,
-        headless: true,
 
-    });
+    console.time('pdf');
+
+    if (!browser) {
+
+
+         browser = await puppeteer.launch({
+
+            headless: true,
+
+        });
+    }
+
 
     const page = await browser.newPage();
 
-    await page.goto('https://timelino.vercel.app/', { waitUntil: 'load' })
+    await page.goto('https://prismatic-cendol-6d0805.netlify.app/print/113', { waitUntil: 'load' })
 
     const pdf = await page.pdf({
         format: 'a4',
@@ -35,7 +41,7 @@ export default defineEventHandler(async (event) => {
 
     const data = pdf.toString('base64')
   
-
+   console.timeEnd('pdf')
 
     return data
 
