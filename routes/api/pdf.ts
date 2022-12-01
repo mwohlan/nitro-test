@@ -14,7 +14,9 @@ export default defineEventHandler(async (event) => {
 
          browser = await puppeteer.launch({
 
-            headless: true,
+             headless: true,
+             args: ['--no-sandbox', '--disable-setuid-sandbox']
+            
 
         });
     }
